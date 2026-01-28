@@ -1,83 +1,95 @@
-# Welcome to CivicResolve 🤝
+Welcome to CivicResolve 🤝
+Empowering Communities to Build Better Cities.
 
-**Empowering Communities to Build Better Cities.**
+Hi there! Welcome to the repository for CivicResolve.
 
-Hi there! Welcome to the repository for **CivicResolve**.
+We believe that great neighborhoods start with engaged citizens. Yet, reporting simple issues like a broken streetlight or a pothole can often feel complicated or unresponsive. CivicResolve changes that.
 
-We believe that great neighborhoods start with engaged citizens. Yet, reporting simple issues like a broken streetlight or a pothole can often feel complicated or unresponsive. **CivicResolve** changes that. usage
+It's a comprehensive platform built to bridge the gap between residents and local authorities. We make it incredibly easy for people to report issues (pinpointing them exactly on a map 📍) and just as easy for authorities to track, assign, and resolve them.
 
-It's a platform built to bridge the gap between residents and local authorities. We make it incredibly easy for people to report issues (pinpointing them exactly on a map 📍) and just as easy for authorities to track, manage, and resolve them.
-
----
-
-## 🚀 What's Under the Hood?
-
+🌟 Key Features
+👤 For Citizens
+Easy Issue Reporting: Report issues with titles, descriptions, and categories.
+Visual Evidence: Upload "Before" images to validate reports.
+Geolocation: Pinpoint the exact location of the issue using an interactive map.
+Track Progress: View the status of reported issues in real-time.
+Feedback: Rate the resolution quality after an issue is fixed.
+Secure Access: Login via Email/Password or Google OAuth. Includes "Forgot Password" functionality.
+🛡️ For Administrators
+Dashboard: A powerful overview of all reported issues.
+Issue Management: Review, approve, or reject reports.
+Contractor Assignment: Assign approved issues to registered contractors based on location (Pincode).
+User Management: Manage citizen and contractor accounts.
+Analytics: Visualize data on reported issues and resolution rates.
+👷 For Contractors
+Job Board: View issues assigned to their specific area.
+Workflow Management: Update status from "In Progress" to "Resolved".
+Proof of Work: Upload "After" images to demonstrate resolution.
+Profile: Manage professional details and service areas.
+🚀 What's Under the Hood?
 We've built this using a robust, modern stack to ensure it's fast, reliable, and secure.
 
-### The Brains (Backend) 🧠
-*   **Java 21 & Spring Boot**: For a solid, high-performance foundation.
-*   **MySQL**: To keep all our data organized and safe.
-*   **Spring Security & JWT**: Because privacy and security matter.
-*   **Email Notifications**: To keep everyone in the loop with real-time updates.
-
-### The Face (Frontend) 🎨
-*   **React (Vite)**: For a snappy, smooth user experience.
-*   **Interactive Maps**: Powered by Leaflet & Google Maps, because a picture (and a location) is worth a thousand words.
-*   **Bootstrap**: For a clean, accessible design that looks good on any device.
-*   **Google Login**: So users can get started in seconds without remembering another password.
-
----
-
-## 🛠️ Getting Started
-
+The Brains (Backend) 🧠
+Java 21 & Spring Boot 3: For a solid, high-performance foundation.
+Spring Data JPA (Hibernate): For efficient database interactions.
+Spring Security & JWT: To ensure secure, stateless authentication.
+Java Mail Sender: For sending welcome emails, status updates, and password reset links.
+MySQL: To keep all our data organized and safe.
+The Face (Frontend) 🎨
+React (Vite): For a snappy, smooth user experience.
+React Bootstrap: For a responsive, clean UI.
+Framer Motion: For smooth animations and transitions.
+Leaflet & React-Leaflet: For interactive maps and clustering.
+Chart.js: For visualizing administrative data.
+Google OAuth: For seamless social login.
+🛠️ Getting Started
 Want to spin this up on your own machine? Awesome! Here is how to get everything running.
 
-### You'll need these first:
-*   **Java 21** installed.
-*   **Node.js** (for the frontend magic).
-*   **MySQL** running on your computer.
+Prerequisites
+Java 21 installed.
+Node.js 18+ installed.
+MySQL running on your computer.
+1. Setting up the Backend ⚙️
+Navigate to the backend folder:
 
-### 1. Setting up the Backend ⚙️
+cd Backend/civicresolve-backend
+Configure the Database:
 
-1.  **Go to the folder:**
-    Open your terminal and head to: `Backend/civicresolve-backend`
+Create a new database in MySQL called civicresolve.
+Open src/main/resources/application.properties.
+Update spring.datasource.username and spring.datasource.password with your credentials.
+Note: The server runs on port 8080 by default.
+Run the Application:
 
-2.  **Connect the Database:**
-    *   Create a new database in MySQL called `civicresolve`.
-    *   Find the `application.properties` file in `src/main/resources`.
-    *   Update the username and password to match your local MySQL setup.
-    *   *(Tip: We use port `3307` by default. If your MySQL is on `3306`, just tweak that line!)*
+./mvnw spring-boot:run
+2. Setting up the Frontend 🖥️
+Navigate to the frontend folder:
 
-3.  **Run it:**
-    *   Fire it up with: `./mvnw spring-boot:run`
-    *   You should see the Spring logo pop up – that means we're in business!
+cd Frontend/civicresolve-frontend
+Install Dependencies:
 
-### 2. Setting up the Frontend 🖥️
+npm install
+# If you encounter peer dependency issues:
+npm install --legacy-peer-deps
+Environment Variables:
 
-1.  **Go to the folder:**
-    Head over to: `Frontend/civicresolve-frontend`
+Create a .env file in the root of the frontend folder.
+Add your keys:
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+# Add other keys as required
+Launch the App:
 
-2.  **Install the goodies:**
-    Run `npm install react-leaflet-cluster --legacy-peer-deps` to grab all the dependencies.
+npm run dev
+Open http://localhost:5173 to view it in your browser.
 
-3.  **Keys & Secrets:**
-    *   Create a file named `.env` right in this folder.
-    *   Add your API keys like this:
-        ```env
-        VITE_GOOGLE_MAPS_API_KEY=your_key_here
-        VITE_GOOGLE_CLIENT_ID=your_client_id_here
-        ```
-    *   *(If you're just testing, reach out and we can help you with test keys!)*
+🔒 Security & Privacy
+We use BCrypt to hash user passwords.
+JWT Tokens are used for session management.
+Role-Based Access Control (RBAC) ensures users only access what they're supposed to.
+📸 Screenshots
+(Add screenshots of your Dashboard, Login Page, and Issue Map here)
 
-4.  **Launch it:**
-    Run `npm run dev` and open the link it gives you (usually `http://localhost:5173`).
-
----
-
-## 🎉 You're All Set!
-
-You should now have the full application running locally.
-*   **Frontend:** `http://localhost:5173`
+Happy Coding! ✨
 *   **Backend:** `http://localhost:8080`
 
 Explore the app, report a test issue, and see how we're trying to make city management smoother for everyone.
